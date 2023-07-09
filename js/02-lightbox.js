@@ -18,19 +18,10 @@ const createGalleryItems = galleryItems
 
 galleryList.innerHTML = createGalleryItems;
 
-galleryList.addEventListener("click", onClickGalleryList);
-
-function onClickGalleryList(event) {
-  event.preventDefault();
-  console.dir(event.target.tagName);
-  if (event.target.tagName === "IMG") {
-    console.log(event.target);
-
-    const lightbox = new SimpleLightbox(".gallery a", {
-      captionsData: "alt",
-      captionDelay: 250,
-
-      //   navText: ["", ""],
-    });
-  }
-}
+const lightbox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+  overlayOpacity: 0.8,
+  swipeTolerance: 400,
+  // showCounter: false,
+});

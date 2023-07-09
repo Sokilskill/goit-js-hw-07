@@ -38,7 +38,7 @@ let instance = null;
 
 function openModAL(url) {
   instance = basicLightbox.create(
-    `<img src='${url}' width="800" height="600" tabindex="0" />`,
+    `<img src='${url}' width="800" height="600"  />`,
     {
       onShow: () => {
         document.addEventListener("keydown", handleModalClose);
@@ -46,7 +46,6 @@ function openModAL(url) {
       onClose: () => {
         document.removeEventListener("keydown", handleModalClose);
       },
-      closable: false,
     }
   );
 
@@ -56,7 +55,17 @@ function openModAL(url) {
     if (event.code === "Escape") {
       // console.log(event.code);
       instance.close();
-      instance = null;
+      //задача зробити спливаючий текст "Для виходу з повноекранного режиму натисніть ESC"
+      //для виконання завдання не є обов'язковим, роботу не приймуть!!!
+      // } else {
+      //   const messageError = instance.element().querySelector("#message");
+      //   event.preventDefault();
+
+      //   console.log(event.code);
+      //   messageError.style.display = " block";
+      //   messageError.style.fontSize = 90;
+      //   messageError.style.color = "Green";
+      //   console.log(messageError.style);
     }
   }
 }
