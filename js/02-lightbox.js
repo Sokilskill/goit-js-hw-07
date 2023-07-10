@@ -21,7 +21,7 @@ galleryList.innerHTML = createGalleryItems;
 const lightbox = new SimpleLightbox(".gallery a", {
   captionsData: "alt",
   captionDelay: 250,
-  overlayOpacity: 0.8,
+  overlayOpacity: 0.9,
   swipeTolerance: 400,
   // showCounter: false,
 });

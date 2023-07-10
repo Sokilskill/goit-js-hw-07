@@ -8,8 +8,8 @@ const gallery = galleryItems
   .map(
     (el) =>
       `<li class="gallery__item" > 
-        <a class="gallery__link" href='${el.original}'>
-        <img class="gallery__image"  src='${el.preview}' data-source='${el.original}' alt='${el.description}'/>
+        <a class="gallery__link" href="${el.original}">
+        <img class="gallery__image"  src="${el.preview}" data-source="${el.original}" alt="${el.description}"/>
         </a>
         </li>`
   )
@@ -26,19 +26,18 @@ function onClickGalleryList(event) {
 
   if (event.target.tagName === "IMG") {
     const largeImageURL = event.target.dataset.source;
-    openModAL(largeImageURL);
+    openModal(largeImageURL);
   }
 }
 
-let instance = null;
 //
 //===================Спосіб 1й закриття модалки кнопкою Escape
 //
 // ====== Для того, щоб використати код розкоментуй даний 1й спосіб та закоментуй 2гий спосіб
 
-function openModAL(url) {
-  instance = basicLightbox.create(
-    `<img src='${url}' width="800" height="600"  />`,
+function openModal(url) {
+  const instance = basicLightbox.create(
+    `<img src="${url}" width="800" height="600"  />`,
     {
       onShow: () => {
         document.addEventListener("keydown", handleModalClose);
@@ -53,19 +52,7 @@ function openModAL(url) {
 
   function handleModalClose(event) {
     if (event.code === "Escape") {
-      // console.log(event.code);
       instance.close();
-      //задача зробити спливаючий текст "Для виходу з повноекранного режиму натисніть ESC"
-      //для виконання завдання не є обов'язковим, роботу не приймуть!!!
-      // } else {
-      //   const messageError = instance.element().querySelector("#message");
-      //   event.preventDefault();
-
-      //   console.log(event.code);
-      //   messageError.style.display = " block";
-      //   messageError.style.fontSize = 90;
-      //   messageError.style.color = "Green";
-      //   console.log(messageError.style);
     }
   }
 }
@@ -79,7 +66,7 @@ function openModAL(url) {
 //   instance = basicLightbox.create(
 //     `<img src='${url}' width="800" height="600" tabindex="0" />`,
 //     {
-//       closable: false,
+//
 //     }
 //   );
 
